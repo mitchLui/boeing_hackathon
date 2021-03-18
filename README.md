@@ -21,14 +21,19 @@ The theme for 2021 is **Life Under Water 🌊🌱** and there are three categror
 
 Our team consists of 6 people from the University of Bristol, all of whom are from Hong Kong:
 
-- Mitch Lui (Computer Science, 1st year)
-- Otis Lee (Electrial and Electronic Engineering, 1st year)
+- [Mitch Lui][2] (Computer Science, 1st year)
+- [Otis Lee][3] (Electrial and Electronic Engineering, 1st year)
 - Javis Lo (Aerospace Engineering, 1st year)
-- Kieron Keung (Aerospace Engineering, 1st year)
-- Ken Young (Aerospace Engineering, 1st year)
-- Dominic Chu (Finance, 1st year)
+- [Kieron Keung][5] (Aerospace Engineering, 1st year)
+- [Ken Young][6] (Aerospace Engineering, 1st year)
+- [Dominic Chu][7] (Finance, 1st year)
 
 ## 1.3. Our Project
 
 
 [1]: https://cssbristol.co.uk/events/2021-03-20_boeing_hackathon/
+[2]: https://www.linkedin.com/in/mitchlui/
+[3]: https://www.linkedin.com/in/otis-lee-9154a91ba/
+[5]: https://www.linkedin.com/in/kieron-keung-2146581b6/
+[6]: https://www.linkedin.com/in/ken-y-6b6379142/
+[7]: https://www.linkedin.com/in/dominic-chu-544966178/
