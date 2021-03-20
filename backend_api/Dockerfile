@@ -12,4 +12,4 @@ RUN \
 pip3 install -U -r requirements.txt
 
 EXPOSE 80
-CMD [ "uvicorn","backend_api:app", "--host", "0.0.0.0", "--port", "80"]
+CMD [ "uvicorn","application:app", "--host", "0.0.0.0", "--port", "80"]
