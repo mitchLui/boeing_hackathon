@@ -36,6 +36,6 @@ class Mapper:
         elif rtype == "html": return self.get_html(), 200
         else: return "Unsupported rtype", 400
 
-if __name__ == "__main":
+if __name__ == "__main__":
     mapper = Mapper()
     
