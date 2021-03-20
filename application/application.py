@@ -27,13 +27,13 @@ async def root():
 @app.get("/demo")
 async def voice(rtype: str):
     if rtype == "json":
-        response, code = mapper.main(rtype)
+        response, code = mapperAPI.main(rtype)
         return JSONResponse(response, code)
     elif rtype == "html":
-        response, code = mapper.main(rtype)
+        response, code = mapperAPI.main(rtype)
         return HTMLResponse(response, code)
     else:
-        response, code = mapper.main(rtype)
+        response, code = mapperAPI.main(rtype)
         return PlainTextResponse(response, code)
 
 

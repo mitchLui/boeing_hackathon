@@ -9,7 +9,9 @@ import os
 class Mapper:
 
     def __init__(self) -> None:
-        self.gmap = gmplot.GoogleMapPlotter(51.4545, 2.5879, 14, apikey=self._get_api_key())
+        self.starting_lat = 51.4545
+        self.starting_lng = -2.5879
+        self.gmap = gmplot.GoogleMapPlotter(self.starting_lat, self.starting_lng, 14, apikey=self._get_api_key())
 
     def _get_api_key(self) -> str:
         load_dotenv(verbose=True)
@@ -20,8 +22,8 @@ class Mapper:
 
     def get_json(self) -> dict:
         data = {
-            "lat": "test",
-            "lng": "test"
+            "lat": self.starting_lat,
+            "lng": self.starting_lng
         }
         return data
 
@@ -30,7 +32,7 @@ class Mapper:
         return self.gmap.get()
 
     def main(self, rtype: str) -> Tuple[Union[str, dict], int]:
-        if rtype == "json": return {"ok", "ok"}, 200
+        if rtype == "json": return self.get_json(), 200
         elif rtype == "html": return self.get_html(), 200
         else: return "Unsupported", 400
 
