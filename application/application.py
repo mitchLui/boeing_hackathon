@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import uvicorn
-from fastapi import FastAPI, Response
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from mapper import Mapper
 
@@ -23,10 +24,10 @@ def root():
     return "app is running"
 
 
-@app.get("/voice", status_code=200)
+@app.get("/demo")
 def voice():
     response = mapper.main()
-    return Response(content=str(response), media_type="application/xml")
+    return HTMLResponse(response)
 
 
 if __name__ == "__main__":

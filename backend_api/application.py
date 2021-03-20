@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import uvicorn
-from fastapi import FastAPI, Response
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from apis import APIs
+from api_router import APIs
 
 app = FastAPI()
 apis = APIs()
@@ -26,7 +27,7 @@ def root():
 @app.get("/voice", status_code=200)
 def voice():
     response = APIs.main()
-    return Response(content=str(response), media_type="application/xml")
+    return JSONResponse(response)
 
 
 if __name__ == "__main__":
