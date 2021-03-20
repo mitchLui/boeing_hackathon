@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from mapper import Mapper
 
 app = FastAPI()
-mapper = Mapper()
+mapperAPI = Mapper()
 
 origins = ["*"]
 

@@ -1,14 +1,22 @@
 # -*- coding: utf-8 -*-
 from loguru import logger
+from typing import Tuple
 
-class APIs:
+from apis.weather_api import Weather_api
+
+class API_router:
 
     def __init__(self) -> None:
-        pass
+        self.weather_api = Weather_api()
 
-    def get_weather(self, location: str) -> dict:
-        return {}
-        
+    def get_weather(self, location: str) -> Tuple[dict, int]:
+        weather = self.weather_api.get_weather(location)
+        if weather:
+            status_code = 200
+        else:
+            status_code = 400
+        return weather, status_code
+
 if __name__ == "__main__":
-    apis = APIs()
-    apis.main()
+    apis = API_router()
+    apis.get_weather("Bristol")

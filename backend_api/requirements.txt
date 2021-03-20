@@ -2,3 +2,5 @@ loguru
 uvicorn
 fastapi
 requests
+typing
+python-dotenv
