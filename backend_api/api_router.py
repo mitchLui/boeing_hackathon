@@ -8,10 +8,7 @@ class APIs:
 
     def get_weather(self, location: str) -> dict:
         return {}
-
-    def main(self) -> str:
-        return {"ok": "ok"}
-
+        
 if __name__ == "__main__":
     apis = APIs()
     apis.main()
