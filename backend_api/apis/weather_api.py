@@ -4,7 +4,7 @@ from loguru import logger
 import requests
 import os
 
-class Marine_api:
+class Weather_api:
 
     def __init__(self) -> None:
         self.url = "http://api.openweathermap.org/"
@@ -25,7 +25,7 @@ class Marine_api:
         return results
 
 if __name__ == "__main__":
-    api = Marine_api()
+    api = Weather_api()
     print(api.get_weather("London"))
 
 
