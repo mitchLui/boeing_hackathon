@@ -26,8 +26,8 @@ async def root():
     return "app is running"
 
 @app.get("/weather", status_code=200)
-async def weather(location: str):
-    response, status_code = apis.get_weather(location)
+async def weather():
+    response, status_code = apis.get_weather()
     return JSONResponse(response, status_code)
 
 

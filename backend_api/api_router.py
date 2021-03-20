@@ -9,8 +9,8 @@ class API_router:
     def __init__(self) -> None:
         self.weather_api = Weather_api()
 
-    def get_weather(self, location: str) -> Tuple[dict, int]:
-        weather = self.weather_api.get_weather(location)
+    def get_weather(self) -> Tuple[dict, int]:
+        weather = self.weather_api.get_weather()
         if weather:
             status_code = 200
         else:
@@ -19,4 +19,4 @@ class API_router:
 
 if __name__ == "__main__":
     apis = API_router()
-    apis.get_weather("Bristol")
+    apis.get_weather()
