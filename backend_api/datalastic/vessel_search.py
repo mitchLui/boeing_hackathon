@@ -8,7 +8,7 @@ class Vessel_search(main.Datalastic):
         super().__init__(api_key)
         self.endpoint = "/api/v0/vessel_find"
 
-    def get_port_by_name(self,name=None,fuzzy=None , port_type=None, country_iso=None, gross_tonnage_min=None, gross_tonnage_max=None, deadweight_min=None , deadweight_max=None , length_min=None, length_max=None, breadth_min=None, breadth_max=None, year_build_min=None , year_build_max=None ):
+    def get_port_by_name(self,name=None,fuzzy=None , port_type=None, country_iso=None, gross_tonnage_min=None, gross_tonnage_max=None, deadweight_min=None , deadweight_max=None , length_min=None, length_max=None, breadth_min=None, breadth_max=None, year_build_min=None , year_build_max=None):
         parameters = {"api-key":self.api_key, "name": name}
         if name:
             parameters.update({"name":name})
@@ -43,4 +43,4 @@ class Vessel_search(main.Datalastic):
 
        
 if __name__ == "__main__":
-    api = Vesel_search()
+    api = Vessel_search()

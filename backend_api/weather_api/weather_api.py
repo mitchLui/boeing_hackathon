@@ -19,7 +19,12 @@ class Weather_api:
                 "temp": results["main"]["temp"],
                 "visibility": results["visibility"],
                 "wind_speed": results["wind"]["speed"],
-                "wind_deg": results["wind"]["deg"]
+                "wind_deg": results["wind"]["deg"],
+                "success": True
+            })
+        else:
+            weather_data.update({
+                "success": False
             })
         return weather_data
 

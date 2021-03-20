@@ -7,13 +7,13 @@ class Historical_data(main.Datalastic):
         super().__init__(api_key)
         self.endpoint = "api/v0/vessel_history" 
 
-    def imo_history(self, imo, days = None):
+    def imo_history(self, imo: str, days: str = None):
         parameters = {"api-key": self.api_key, "imo": imo}
         if days:
             parameters.update({"days": days})
         return self._get_results(url=f"{self.url}{self.endpoint}", parameters=parameters)
 
-    def mmsi_history(self, mmsi, days = None):
+    def mmsi_history(self, mmsi: str, days: str = None):
         parameters = {"api-key": self.api_key, "mmsi": mmsi}
         if days:
             parameters.update({"days": days})

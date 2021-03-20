@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from os import stat
-from requests import api
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
