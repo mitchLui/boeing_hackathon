@@ -20,12 +20,12 @@ app.add_middleware(
 
 
 @app.get("/", status_code=200)
-def root():
+async def root():
     return "app is running"
 
 
 @app.get("/demo")
-def voice():
+async def voice():
     response = mapper.main()
     return HTMLResponse(response)
 

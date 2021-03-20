@@ -20,13 +20,12 @@ app.add_middleware(
 
 
 @app.get("/", status_code=200)
-def root():
+async def root():
     return "app is running"
 
-
-@app.get("/voice", status_code=200)
-def voice():
-    response = APIs.main()
+@app.get("/weather", status_code=200)
+async def weather(location: str):
+    response = apis.get_weather(location)
     return JSONResponse(response)
 
 
