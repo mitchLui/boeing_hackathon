@@ -1,20 +1,13 @@
 # -*- coding: utf-8 -*-
-from dotenv import load_dotenv
 from loguru import logger
 import requests
-import json
-import os
 
 class Weather_api:
 
-    def __init__(self) -> None:
+    def __init__(self, api_key) -> None:
         self.url = "http://api.openweathermap.org/"
-        self.api_key = self._get_api_key()
+        self.api_key = api_key
         self.api_version = "2.5"
-        
-    def _get_api_key(self):
-        load_dotenv(verbose=True)
-        return os.getenv("OPENWEATHER_KEY")
 
     def format_answer(self, results: dict) -> dict:
         weather_data = {}
