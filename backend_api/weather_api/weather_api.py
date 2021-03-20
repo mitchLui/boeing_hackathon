@@ -2,8 +2,8 @@
 from loguru import logger
 import requests
 
-class Weather_api:
 
+class Weather_api:
     def __init__(self, api_key) -> None:
         self.url = "http://api.openweathermap.org/"
         self.api_key = api_key
@@ -12,23 +12,23 @@ class Weather_api:
     def format_answer(self, results: dict) -> dict:
         weather_data = {}
         if results:
-            weather_data.update({
-                "name": results["name"],
-                "weather_name": results["weather"][0]["main"],
-                "weather_icon": results["weather"][0]["icon"],
-                "temp": results["main"]["temp"],
-                "visibility": results["visibility"],
-                "wind_speed": results["wind"]["speed"],
-                "wind_deg": results["wind"]["deg"],
-                "success": True
-            })
+            weather_data.update(
+                {
+                    "name": results["name"],
+                    "weather_name": results["weather"][0]["main"],
+                    "weather_icon": results["weather"][0]["icon"],
+                    "temp": results["main"]["temp"],
+                    "visibility": results["visibility"],
+                    "wind_speed": results["wind"]["speed"],
+                    "wind_deg": results["wind"]["deg"],
+                    "success": True,
+                }
+            )
         else:
-            weather_data.update({
-                "success": False
-            })
+            weather_data.update({"success": False})
         return weather_data
 
-    def get_weather(self) -> dict: 
+    def get_weather(self) -> dict:
         """Gets weather for Bristol
 
         Returns:
@@ -43,9 +43,7 @@ class Weather_api:
         results = r.json() if r.status_code == 200 else {}
         return self.format_answer(results)
 
+
 if __name__ == "__main__":
     api = Weather_api()
     print(api.get_weather())
-
-
-     
