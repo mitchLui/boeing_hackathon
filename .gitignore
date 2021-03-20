@@ -132,3 +132,5 @@ dmypy.json
 # VSCode Settings
 .VSCode
 
+# EC2 pem file
+*.pem
