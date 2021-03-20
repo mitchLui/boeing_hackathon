@@ -2,7 +2,7 @@ version: "3.0"
 
 services:
     marine_application:
-        image: "marine_application:$TAG"
+        image: "marine_application:$VER"
         hostname: marine_application
         container_name: marine_application
         build: ./application
@@ -11,7 +11,7 @@ services:
         ports:
             - 80:80
     marine_backend_api:
-        image: "marine_backend_api:$TAG"
+        image: "marine_backend_api:$VER"
         hostname: marine_backend_api
         container_name: marine_backend_api
         build: ./backend_api
