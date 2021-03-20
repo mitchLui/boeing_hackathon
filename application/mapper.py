@@ -34,7 +34,7 @@ class Mapper:
     def main(self, rtype: str) -> Tuple[Union[str, dict], int]:
         if rtype == "json": return self.get_json(), 200
         elif rtype == "html": return self.get_html(), 200
-        else: return "Unsupported", 400
+        else: return "Unsupported rtype", 400
 
 if __name__ == "__main":
     mapper = Mapper()
