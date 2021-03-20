@@ -4,14 +4,15 @@ then
     echo "$FILE DOES NOT EXIST"
     echo "EXITING SCRIPT"
     exit 1
-fi 
-BUILD_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'`
-COMMIT_ID=$(git rev-parse --verify HEAD)
-COMMIT_ID=${COMMIT_ID:0:8}
+fi
 VER=`date -u +'%Y%m%d'`
-VER="${VER}_${COMMIT_ID}"
+if [ -d .git ]
+then
+    COMMIT_ID=$(git rev-parse --verify HEAD)
+    COMMIT_ID=${COMMIT_ID:0:8}
+    VER="${VER}_${COMMIT_ID}"
+fi
 TAG=${PWD##*/}
-DIR=$2
-sudo TAG=$VER docker-compose up -d --build
+sudo VER=$VER docker-compose -p $TAG up -d --build --force-recreate
 echo "BUILD FROM $FILE COMPLETE"
 exit 0
