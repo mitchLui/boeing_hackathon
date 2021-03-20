@@ -2,3 +2,4 @@ loguru
 uvicorn
 fastapi
 gmplot
+typing
