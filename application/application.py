@@ -25,7 +25,7 @@ async def root():
     return "app is running"
 
 @app.get("/demo")
-async def voice(rtype: str):
+async def demo(rtype: str):
     if rtype == "json":
         response, code = mapperAPI.main(rtype)
         return JSONResponse(response, code)
