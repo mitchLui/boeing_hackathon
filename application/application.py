@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+from typing import Text
 import uvicorn
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
 from mapper import Mapper
 
@@ -23,11 +24,17 @@ app.add_middleware(
 async def root():
     return "app is running"
 
-
 @app.get("/demo")
-async def voice():
-    response = mapper.main()
-    return HTMLResponse(response)
+async def voice(rtype: str):
+    if rtype == "json":
+        response, code = mapper.main(rtype)
+        return JSONResponse(response, code)
+    elif rtype == "html":
+        response, code = mapper.main(rtype)
+        return HTMLResponse(response, code)
+    else:
+        response, code = mapper.main(rtype)
+        return PlainTextResponse(response, code)
 
 
 if __name__ == "__main__":
