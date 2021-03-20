@@ -27,7 +27,7 @@ Our team consists of 6 people from the University of Bristol, all of whom are fr
 
 - [Mitch Lui][2] (Computer Science, 1st year)
 - [Otis Lee][3] (Electrial and Electronic Engineering, 1st year)
-- Javis Lo (Aerospace Engineering, 1st year)
+- [Javis Lo][4] (Aerospace Engineering, 1st year)
 - [Kieron Keung][5] (Aerospace Engineering, 1st year)
 - [Ken Young][6] (Aerospace Engineering, 1st year)
 - [Dominic Chu][7] (Finance, 1st year)
@@ -43,6 +43,7 @@ Our team consists of 6 people from the University of Bristol, all of whom are fr
 [1]: https://cssbristol.co.uk/events/2021-03-20_boeing_hackathon/
 [2]: https://www.linkedin.com/in/mitchlui/
 [3]: https://www.linkedin.com/in/otis-lee-9154a91ba/
+[4]: https://www.linkedin.com/in/yat-chung-javis-lo-807611200/
 [5]: https://www.linkedin.com/in/kieron-keung-2146581b6/
 [6]: https://www.linkedin.com/in/ken-y-6b6379142/
 [7]: https://www.linkedin.com/in/dominic-chu-544966178/
