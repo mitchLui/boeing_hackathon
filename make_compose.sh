@@ -12,7 +12,6 @@ VER=`date -u +'%Y%m%d'`
 VER="${VER}_${COMMIT_ID}"
 TAG=${PWD##*/}
 DIR=$2
-TIMEZONE="TZ=Asia/Hong_Kong"
 sudo TAG=$VER docker-compose up -d --build
 echo "BUILD FROM $FILE COMPLETE"
 exit 0

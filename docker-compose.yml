@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+    marine_application:
+        image: "marine_application:$TAG"
+        hostname: marine_application
+        container_name: marine_application
+        build: ./application
+        links:
+            - "marine_backend_api"
+        ports:
+            - 80:80
+    marine_backend_api:
+        image: "marine_backend_api:$TAG"
+        hostname: marine_backend_api
+        container_name: marine_backend_api
+        build: ./backend_api
+        ports:
+            - 5000:80
