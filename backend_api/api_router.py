@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import requests
 
 class APIs:
 
@@ -7,7 +7,7 @@ class APIs:
         pass
 
     def main(self) -> str:
-        return "ok"
+        return {"ok": "ok"}
 
 if __name__ == "__main__":
     apis = APIs()
