@@ -54,11 +54,5 @@
             "vessel_info": "/vessel_info",
             "search_vessel": "/search_vessel"
         }
-    },
-    "perimeter": [
-        {
-            "lat": 51.4472,
-            "lng": 1.0077
-        }
-    ]
+    }
 }
