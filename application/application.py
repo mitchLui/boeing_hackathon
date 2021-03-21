@@ -25,17 +25,10 @@ async def root():
     return "app is running"
 
 @app.get("/demo")
-async def demo(rtype: str, city: str):
+async def demo(city: str):
     if city not in mapperAPI.port_ids: city = "felixstowe"
-    if rtype == "json":
-        response, code = mapperAPI.main(rtype, city)
-        return JSONResponse(response, code)
-    elif rtype == "html":
-        response, code = mapperAPI.main(rtype, city)
-        return HTMLResponse(response, code)
-    else:
-        response, code = mapperAPI.main(rtype, city)
-        return PlainTextResponse(response, code)
+    response, code = mapperAPI.main(city)
+    return HTMLResponse(response, code)
 
 if __name__ == "__main__":
     uvicorn.run("application:app", host="0.0.0.0", port=80, reload=True)

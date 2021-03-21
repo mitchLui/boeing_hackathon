@@ -25,13 +25,6 @@ class Mapper:
     def get_data(self) -> Union[list, dict]:
         pass
 
-    def get_json(self) -> dict:
-        data = {
-            "lat": self.starting_lat,
-            "lng": self.starting_lng
-        }
-        return data
-
     def get_html(self, city_id = "felixstowe") -> str:
         port_data = self.config["ports"].get(city_id, "felixstowe")
         starting_lat = port_data["lat"]
@@ -42,10 +35,8 @@ class Mapper:
             gmap.marker(port["lat"], port["lng"], color=port["colour"], label=port["name"])
         return gmap.get()
 
-    def main(self, rtype: str, city: str) -> Tuple[Union[str, dict], int]:
-        if rtype == "json": return self.get_json(), 200
-        elif rtype == "html": return self.get_html(city), 200
-        else: return "Unsupported rtype", 400
+    def main(self, city: str) -> Tuple[Union[str, dict], int]:
+        return self.get_html(city), 200
 
 if __name__ == "__main__":
     mapper = Mapper()
