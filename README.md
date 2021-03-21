@@ -7,9 +7,10 @@ This repository stores the project created for the [University of Bristol CSSxBo
   - [1.2. Our Team](#12-our-team)
   - [1.3. Our Project](#13-our-project)
   - [1.4. Tech Stack](#14-tech-stack)
-  - [Deployment](#deployment)
-    - [Requirements](#requirements)
-    - [Creating the compose network](#creating-the-compose-network)
+  - [1.5. Deployment](#15-deployment)
+    - [1.5.1. Requirements](#151-requirements)
+    - [1.5.2. Creating the compose network](#152-creating-the-compose-network)
+  - [1.6. Usage](#16-usage)
 
 ---
 
@@ -62,18 +63,18 @@ The back-end is also a FastAPI application that returns information about a vess
 
 ---
 
-## Deployment
+## 1.5. Deployment
 
-### Requirements
+### 1.5.1. Requirements
 
 - Docker (and Compose)
 - Install dependencies in `application/requirements.txt` and `backend_api/requirements.txt` using `pip3 install -r requirements.txt` (For development) 
 - A .env file under `application/` to store a Google Maps JS API Key
 - A .env file under `backend_api/` to store API Keys for OpenWeather and Datalastic 
 
-Samples for the .env files can be found in the respective directories
+Samples for the .env files can be found in the respective directories.
 
-### Creating the compose network
+### 1.5.2. Creating the compose network
 
 The `docker-compose.yml` assigns port 80 to the front-end and 5000 to the back-end by default.
 
@@ -81,7 +82,27 @@ To deploy:
 
 ```sh
 ./make_compose.sh
-````
+```
+
+---
+
+## 1.6. Usage
+
+The endpoint is `/marine_tracker` and the only parameter is `city`, which can be any city from the following list:
+
+- felixstowe
+- southampton
+- london
+- immingham
+- liverpool
+- portsmouth
+- brisbane
+- hong_kong
+- berlin
+- gioia_tauro
+- tokyo
+
+
 
 ---
 
