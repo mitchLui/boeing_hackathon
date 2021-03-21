@@ -6,6 +6,7 @@ This repository stores the project created for the [University of Bristol CSSxBo
   - [1.1. About the Hackathon](#11-about-the-hackathon)
   - [1.2. Our Team](#12-our-team)
   - [1.3. Our Project](#13-our-project)
+  - [Tech Stack](#tech-stack)
 
 ---
 
@@ -36,6 +37,14 @@ Our team consists of 6 people from the University of Bristol, all of whom are fr
 
 ## 1.3. Our Project
 
+We created a live vessel tracker using a REST API from [Datalastic][8]. Using Datalastic's data and Python library `gmplot`, we created a containerised Docker application using `FastAPI`. This enables us to put markers onto a google maps interface and track marine vessels in real time, as well as display information about a certain port.
+
+![sample](sample.png)
+
+---
+
+## 1.4. Tech Stack
+
 
 
 ---
@@ -47,3 +56,4 @@ Our team consists of 6 people from the University of Bristol, all of whom are fr
 [5]: https://www.linkedin.com/in/kieron-keung-2146581b6/
 [6]: https://www.linkedin.com/in/ken-y-6b6379142/
 [7]: https://www.linkedin.com/in/dominic-chu-544966178/
+[8]: https://datalastic.com
