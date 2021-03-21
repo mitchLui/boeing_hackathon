@@ -2,10 +2,13 @@
 from loguru import logger
 from typing import Tuple, Union
 from dotenv import load_dotenv
+from concurrent.futures import ThreadPoolExecutor
 import requests
 import gmplot
 import json
 import os
+
+from requests.api import request
 
 class Mapper:
 
@@ -22,17 +25,25 @@ class Mapper:
         load_dotenv(verbose=True)
         return os.getenv("GMPLOT_KEY")    
 
-    def get_data(self) -> Union[list, dict]:
-        pass
+    def get_data_thread(self) -> dict:
+        with ThreadPoolExecutor(workers=5) as e:
+            results = list(e.map())
+        return results
+
+    def get_data(self, ) -> Union[list, dict]:
+        r = requests.get()
+
+    def get_port_data(self): pass
+
 
     def get_html(self, city_id = "felixstowe") -> str:
         port_data = self.config["ports"].get(city_id, "felixstowe")
         starting_lat = port_data["lat"]
         starting_lng = port_data["lng"]
         gmap = gmplot.GoogleMapPlotter(starting_lat, starting_lng, 14, apikey=self._get_api_key())
-        gmap.marker(starting_lat, starting_lng, color=port_data["colour"], label=port_data["name"])
+        gmap.marker(starting_lat, starting_lng, color=port_data["colour"], info_window=port_data["name"])
         for port in self.config["ports"].values():
-            gmap.marker(port["lat"], port["lng"], color=port["colour"], label=port["name"])
+            gmap.marker(port["lat"], port["lng"], color=port["colour"], info_window=port["name"])
         return gmap.get()
 
     def main(self, city: str) -> Tuple[Union[str, dict], int]:
