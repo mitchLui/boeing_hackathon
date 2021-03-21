@@ -4,56 +4,56 @@
             "name": "Port of Felixstowe",
             "country": "GB",
             "website": "https://www.portoffelixstowe.co.uk",
-            "lat": 51.9492,
-            "lng": 1.3239,
+            "lat": 51.94921,
+            "lng": 1.32392,
             "colour": "orange"
         },
         "southampton": {
             "name": "Port of Southampton",
             "country": "GB",
             "website": "https://www.southamptonvts.co.uk",
-            "lat": 50.8899,
-            "lng": -1.3976,
+            "lat": 50.88994,
+            "lng": -1.39756,
             "colour": "blue"
         },
         "london": {
             "name": "Port of London",
             "country": "GB",
             "website": "http://www.pla.co.uk",
-            "lat": 51.5093,
-            "lng": 0.0350,
+            "lat": 51.50936,
+            "lng": 0.03507,
             "colour": "green"
         },
         "immingham": {
             "name": "Port of Immingham",
             "country": "GB",
             "website": "https://www.abports.co.uk/locations/immingham/",
-            "lat": 53.6277,
-            "lng": -0.1922,
+            "lat": 53.62778,
+            "lng": -0.19229,
             "colour": "purple"
         },
         "liverpool": {
             "name": "Port of Liverpool",
             "country": "GB",
             "website": "https://www.peelports.com/port-locations/liverpool",
-            "lat": 53.4043,
-            "lng": -2.9950,
+            "lat": 53.40430,
+            "lng": -2.99500,
             "colour": "red"
         },
         "portsmouth": {
             "name": "Porthsmouth International Port",
             "country": "GB",
             "website": "https://www.portsmouth-port.co.uk",
-            "lat": 50.8431,
-            "lng": -1.0986,
+            "lat": 50.84313,
+            "lng": -1.09865,
             "colour": "cornflowerblue"
         },
         "brisbane": {
             "name": "Port of Brisbane",
             "country": "AU",
             "website": "https://www.portbris.com.au",
-            "lat": -27.3823,
-            "lng": 153.1693,
+            "lat": -27.38235,
+            "lng": 153.16936,
             "colour": "red"
         },
         "hong_kong": {
@@ -63,6 +63,30 @@
             "lat": 22.28795,
             "lng": 114.1814,
             "colour": "cornflowerblue"
+        },
+        "berlin": {
+            "name": "Port of Berlin",
+            "country": "DE",
+            "website": "http://www.worldportsource.com/ports/DEU_Port_of_Berlin_5256.php",
+            "lat": 52.51446,
+            "lng": 13.40554,
+            "colour": "blue"
+        },
+        "gioia_tauro": {
+            "name": "Port of Gioia Tauro",
+            "country": "IT",
+            "website": "http://www.pla.co.uk",
+            "lat": 38.45494,
+            "lng": 15.90183,
+            "colour": "blue"
+        },
+        "tokyo": {
+            "name": "Port of Tokyo",
+            "country": "JP",
+            "website": "http://www.pla.co.uk",
+            "lat": 35.61168,
+            "lng": 139.8268,
+            "colour": "blue"
         }
     },
     "apis": {

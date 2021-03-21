@@ -79,8 +79,7 @@ class Mapper:
             {
                 "url": f"{self.config['apis']['url']}{self.config['apis']['endpoints']['location_data']}",
                 "params": {
-                    "lat": port["lat"],
-                    "lon": port["lng"],
+                    "port_unlocode": port["unlocode"],
                     "radius": 50
                 }
             } for port in self.config["ports"].values()
