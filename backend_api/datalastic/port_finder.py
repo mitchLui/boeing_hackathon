@@ -7,13 +7,15 @@ class Port_finder(main.Datalastic):
         super().__init__(api_key)
         self.endpoint = "/api/v0/port_find"
 
-    def get_port_by_name(self, name, country_iso, port_type, fuzzy=None):
+    def get_port_by_name(self, name, country_iso=None, port_type=None, fuzzy=None):
         parameters = {
             "api-key": self.api_key,
-            "name": name,
-            "port_type": port_type,
-            "country_iso": country_iso,
+            "name": name
         }
+        if country_iso:
+            parameters.update({"country_iso": country_iso})
+        if port_type:
+            parameters.update({"port_type": port_type})
         if fuzzy:
             parameters.update({"fuzzy": fuzzy})
         return self._get_results(
