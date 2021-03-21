@@ -94,7 +94,7 @@ class Mapper:
                     lon = vessel["lon"]
                     info = f"""
                     <b>{vessel['name']}</b>
-                    <br><b>IMO</b>: {vessel['type']}
+                    <br><b>IMO</b>: {vessel['imo']}
                     <br><b>Latitude</b>: {vessel['lat']}
                     <br><b>Longitude</b>: {vessel['lon']}
                     <br><b>Country</b>: {vessel['country_iso']}
