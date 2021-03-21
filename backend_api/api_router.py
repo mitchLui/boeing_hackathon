@@ -108,8 +108,9 @@ class API_router:
         radius: str = None,
     ):
         status_code = 200
+        response = {}
         try:
-            if name and country_iso and port_type:
+            if name or country_iso or fuzzy:
                 response = self.port_finder.get_port_by_name(name, country_iso, fuzzy)
             if lat and lon and radius:
                 response = self.port_finder.get_port_by_lat_lon_radius(

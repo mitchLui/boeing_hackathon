@@ -34,6 +34,13 @@
             "lat": 53.4043,
             "lng": -2.9950,
             "colour": "red"
+        },
+        "portsmouth": {
+            "name": "Porthsmouth International Port",
+            "website": "https://www.portsmouth-port.co.uk",
+            "lat": 50.8431,
+            "lng": -1.0986,
+            "colour": "cornflowerblue"
         }
     },
     "apis": {
@@ -47,5 +54,11 @@
             "vessel_info": "/vessel_info",
             "search_vessel": "/search_vessel"
         }
-    }
+    },
+    "perimeter": [
+        {
+            "lat": 51.4472,
+            "lng": 1.0077
+        }
+    ]
 }

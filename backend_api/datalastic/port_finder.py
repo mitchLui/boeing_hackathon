@@ -19,7 +19,7 @@ class Port_finder(main.Datalastic):
         if fuzzy:
             parameters.update({"fuzzy": fuzzy})
         return self._get_results(
-            url=f"{self.url}{self.endpoint}", parameters=parameters
+            url=f"{self.url}{self.endpoint}", params=parameters
         )
 
     def get_port_by_lat_lon_radius(

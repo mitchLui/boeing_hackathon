@@ -25,29 +25,91 @@ class Mapper:
         load_dotenv(verbose=True)
         return os.getenv("GMPLOT_KEY")    
 
-    def get_data_thread(self) -> dict:
-        with ThreadPoolExecutor(workers=5) as e:
-            results = list(e.map())
+    def get_data_thread(self, iter: list) -> None:
+        with ThreadPoolExecutor(max_workers=20) as e:
+            results = list(e.map(self.get_data, iter))
+        logger.debug(results)
         return results
 
-    def get_data(self, ) -> Union[list, dict]:
-        r = requests.get()
+    def get_data(self, datum: dict) -> Union[list, dict]:
+        r = requests.get(datum['url'], datum['params'])
+        results = r.json() if r.status_code == 200 else {}
+        return results
 
-    def get_port_data(self): pass
+    def get_port_data(self):
+        data = [
+            {
+                "url": f"{self.config['apis']['url']}{self.config['apis']['endpoints']['port']}",
+                "params": {
+                    "name": port_id,
+                    "country_iso": "GB"
+                }
+            } for port_id in self.port_ids 
+        ]
+        results = self.get_data_thread(data)
+        results = [x["data"][0] for x in results]
+        for port_id in self.port_ids:
+            for result in results:
+                if port_id == result["port_name"].lower():
+                    self.config["ports"][port_id].update(result)
 
 
-    def get_html(self, city_id = "felixstowe") -> str:
+    def get_base(self, city_id = "felixstowe") -> str:
         port_data = self.config["ports"].get(city_id, "felixstowe")
         starting_lat = port_data["lat"]
-        starting_lng = port_data["lng"]
+        starting_lng = port_data["lon"]
         gmap = gmplot.GoogleMapPlotter(starting_lat, starting_lng, 14, apikey=self._get_api_key())
-        gmap.marker(starting_lat, starting_lng, color=port_data["colour"], info_window=port_data["name"])
+        info = f"""<a href='{port_data['website']}' target='_blank'>{port_data['name']}</a>
+            <br><b>Latitude</b>: {starting_lat}
+            <br><b>Longitude</b>: {starting_lng} 
+            <br><b>Unlocode</b>: {port_data['unlocode']}
+        """
+        gmap.marker(starting_lat, starting_lng, color=port_data["colour"], info_window=info)
         for port in self.config["ports"].values():
-            gmap.marker(port["lat"], port["lng"], color=port["colour"], info_window=port["name"])
+            info = f"""<a href='{port['website']}' target='_blank'>{port['name']}</a>
+                        <br><b>Latitude</b>: {port['lat']}
+                        <br><b>Longitude</b>: {port['lon']} 
+                        <br><b>Unlocode</b>: {port['unlocode']}
+                    """
+            gmap.marker(port["lat"], port["lon"], color=port["colour"], info_window=info)
+        return gmap
+
+    def find_vessels(self, gmap: gmplot.GoogleMapPlotter):
+        data = [
+            {
+                "url": f"{self.config['apis']['url']}{self.config['apis']['endpoints']['location_data']}",
+                "params": {
+                    "lat": port["lat"],
+                    "lon": port["lng"],
+                    "radius": 50
+                }
+            } for port in self.config["ports"].values()
+        ]
+        results = self.get_data_thread(data)
+        for result in results:
+            vessels = result["data"]["vessels"]
+            for vessel in vessels:
+                lat = vessel["lat"]
+                lon = vessel["lon"]
+                info = f"""
+                <b>{vessel['name']}</b>
+                <br><b>IMO</b>: {vessel['type']}
+                <br><b>Latitude</b>: {vessel['lat']}
+                <br><b>Longitude</b>: {vessel['lon']}
+                <br><b>Country</b>: {vessel['country_iso']}
+                <br><b>Type</b>: {vessel['type']}
+                <br><b>Speed</b>: {vessel['speed']}
+                <br><b>Course</b>: {vessel['course']}
+                <br><b>Heading</b>: {vessel['heading']}
+                """
+                gmap.marker(lat, lon, "orange", info_window=info)
         return gmap.get()
 
     def main(self, city: str) -> Tuple[Union[str, dict], int]:
-        return self.get_html(city), 200
+        self.get_port_data()
+        gmap = self.get_base(city)
+        website = self.find_vessels(gmap)
+        return website, 200
 
 if __name__ == "__main__":
     mapper = Mapper()

@@ -8,7 +8,7 @@ class Location_monitor(main.Datalastic):
         self.endpoint = "api/v0/vessel_inradius"
 
     def get_location_by_lat_lon(self, radius, lat, lon):
-        parameters = {"api-key": self.api_key, "radius": radius, "lat": lat, "lon": lon}
+        parameters = {"api-key": self.api_key, "lat": lat, "lon": lon, "radius": radius}
         return self._get_results(f"{self.url}{self.endpoint}", params=parameters)
 
     def get_location_by_uuid(self, radius: str, uuid: str):

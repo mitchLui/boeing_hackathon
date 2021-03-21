@@ -24,7 +24,7 @@ app.add_middleware(
 async def root():
     return "app is running"
 
-@app.get("/demo")
+@app.get("/map")
 async def demo(city: str = "felixstowe"):
     if city not in mapperAPI.port_ids: city = "felixstowe"
     response, code = mapperAPI.main(city)
