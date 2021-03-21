@@ -1,0 +1,34 @@
+{
+    "ports": {
+        "felixstowe": {
+            "name": "Port of Felixstowe",
+            "lat": 51.9492,
+            "lng": 1.3239,
+            "colour": "orange"
+        },
+        "southampton": {
+            "name": "Port of Southampton",
+            "lat": 50.8899,
+            "lng": -1.3976,
+            "colour": "blue"
+        },
+        "london": {
+            "name": "Port of London",
+            "lat": 51.5093,
+            "lng": 0.0350,
+            "colour": "green"
+        },
+        "immingham": {
+            "name": "Port of Immingham",
+            "lat": 53.6277,
+            "lng": -0.1922,
+            "colour": "purple"
+        },
+        "liverpool": {
+            "name": "Port of Liverpool",
+            "lat": 53.4043,
+            "lng": -2.9950,
+            "colour": "red"
+        }
+    }
+}
