@@ -4,6 +4,7 @@ from loguru import logger
 from typing import Tuple, Union
 from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
+from random import choice
 import requests
 import gmplot
 import json
