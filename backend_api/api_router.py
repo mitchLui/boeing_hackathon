@@ -20,7 +20,7 @@ class API_router:
         self.historical_data = Historical_data(datalastic_key)
         self.location_monitor = Location_monitor(datalastic_key)
         self.port_finder = Port_finder(datalastic_key)
-        self.ship_tracker = Ship_tracker(datalastic_key)
+        self.vessel_tracker = Ship_tracker(datalastic_key)
         self.vessel_info = Vessel_info(datalastic_key)
         self.vessel_search = Vessel_search(datalastic_key)
 
@@ -53,7 +53,7 @@ class API_router:
             else:
                 response = self.historical_data.mmsi_history(mmsi, days)
         except Exception:
-            logger.error(format_exc)
+            logger.error(format_exc())
             response = self._generate_error_message("GET PORT - API ERROR")
             status_code = 400
         finally:
@@ -91,7 +91,7 @@ class API_router:
                     radius, port_unlocode
                 )
         except Exception:
-            logger.error(format_exc)
+            logger.error(format_exc())
             response = self._generate_error_message("GET PORT - API ERROR")
             status_code = 400
         finally:
@@ -127,13 +127,13 @@ class API_router:
         status_code = 200
         try:
             if uuid:
-                response = self.ship_tracker.track_vessel_by_uuid(uuid)
+                response = self.vessel_tracker.track_vessel_by_uuid(uuid)
             if mmsi:
-                response = self.ship_tracker.track_vessel_by_mmsi(mmsi)
+                response = self.vessel_tracker.track_vessel_by_mmsi(mmsi)
             if imo:
-                response = self.ship_tracker.track_vessel_by_imo(imo)
+                response = self.vessel_tracker.track_vessel_by_imo(imo)
         except Exception:
-            logger.error(format_exc)
+            logger.error(format_exc())
             response = self._generate_error_message("GET PORT - API ERROR")
             status_code = 400
         finally:
@@ -149,7 +149,7 @@ class API_router:
             if imo:
                 response = self.vessel_info.get_vessel_info_by_imo(imo)
         except Exception:
-            logger.error(format_exc)
+            logger.error(format_exc())
             response = self._generate_error_message("GET PORT - API ERROR")
             status_code = 400
         finally:
@@ -191,7 +191,7 @@ class API_router:
                 year_build_max,
             )
         except Exception:
-            logger.error(format_exc)
+            logger.error(format_exc())
             response = self._generate_error_message("GET PORT - API ERROR")
             status_code = 400
         finally:
