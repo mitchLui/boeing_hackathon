@@ -4,7 +4,6 @@ from loguru import logger
 from typing import Tuple, Union
 from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
-from random import choice
 import requests
 import gmplot
 import json
@@ -104,7 +103,7 @@ class Mapper:
                 <br><b>Course</b>: {vessel['course']}
                 <br><b>Heading</b>: {vessel['heading']}
                 """
-                gmap.marker(lat, lon, choice(colours), info_window=info, label=choice(ships))
+                gmap.marker(lat, lon, choice(colours), info_window=info)
         return gmap.get()
 
     def main(self, city: str) -> Tuple[Union[str, dict], int]:
