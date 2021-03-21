@@ -30,5 +30,17 @@
             "lng": -2.9950,
             "colour": "red"
         }
+    },
+    "apis": {
+        "url": "http://marine_backend_api",
+        "endpoints": {
+            "weather": "/weather",
+            "vessel_history": "/vessel_history",
+            "location_data": "/location_data",
+            "port": "/port",
+            "track_vessel": "/track_vessel",
+            "vessel_info": "/vessel_info",
+            "search_vessel": "/search_vessel"
+        }
     }
 }
