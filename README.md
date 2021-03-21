@@ -7,6 +7,9 @@ This repository stores the project created for the [University of Bristol CSSxBo
   - [1.2. Our Team](#12-our-team)
   - [1.3. Our Project](#13-our-project)
   - [1.4. Tech Stack](#14-tech-stack)
+  - [Deployment](#deployment)
+    - [Requirements](#requirements)
+    - [Creating the compose network](#creating-the-compose-network)
 
 ---
 
@@ -56,6 +59,29 @@ The front-end is a FastAPI application that returns a Google Maps interface with
 **Back-end**:
 
 The back-end is also a FastAPI application that returns information about a vessel using the Datalastic API.
+
+---
+
+## Deployment
+
+### Requirements
+
+- Docker (and Compose)
+- Install dependencies in `application/requirements.txt` and `backend_api/requirements.txt` using `pip3 install -r requirements.txt` (For development) 
+- A .env file under `application/` to store a Google Maps JS API Key
+- A .env file under `backend_api/` to store API Keys for OpenWeather and Datalastic 
+
+Samples for the .env files can be found in the respective directories
+
+### Creating the compose network
+
+The `docker-compose.yml` assigns port 80 to the front-end and 5000 to the back-end by default.
+
+To deploy:
+
+```sh
+./make_compose.sh
+````
 
 ---
 
