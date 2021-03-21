@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
+from warnings import simplefilter
 from loguru import logger
 from typing import Tuple, Union
 from dotenv import load_dotenv
 from concurrent.futures import ThreadPoolExecutor
+from random import choice
 import requests
 import gmplot
 import json
 import os
-
-from requests.api import request
 
 class Mapper:
 
@@ -41,7 +41,7 @@ class Mapper:
             {
                 "url": f"{self.config['apis']['url']}{self.config['apis']['endpoints']['port']}",
                 "params": {
-                    "name": port_id,
+                    "name": port_id.replace("_"," "),
                     "country_iso": self.config["ports"][port_id]["country"]
                 }
             } for port_id in self.port_ids 
@@ -50,7 +50,7 @@ class Mapper:
         results = [x["data"][0] for x in results]
         for port_id in self.port_ids:
             for result in results:
-                if port_id == result["port_name"].lower():
+                if port_id.replace("_", " ") == result["port_name"].lower():
                     self.config["ports"][port_id].update(result)
 
 
@@ -71,7 +71,7 @@ class Mapper:
                         <br><b>Longitude</b>: {port['lon']} 
                         <br><b>Unlocode</b>: {port['unlocode']}
                     """
-            gmap.marker(port["lat"], port["lon"], color=port["colour"], info_window=info)
+            gmap.marker(port["lat"], port["lon"], color=port["colour"], info_window=info, label="P")
         return gmap
 
     def find_vessels(self, gmap: gmplot.GoogleMapPlotter):
@@ -87,6 +87,8 @@ class Mapper:
         ]
         results = self.get_data_thread(data)
         for result in results:
+            colours = ["red", "orange", "yellow", "green", "blue", "purple"]
+            ships = ["V", "S"]
             vessels = result["data"]["vessels"]
             for vessel in vessels:
                 lat = vessel["lat"]
@@ -102,7 +104,7 @@ class Mapper:
                 <br><b>Course</b>: {vessel['course']}
                 <br><b>Heading</b>: {vessel['heading']}
                 """
-                gmap.marker(lat, lon, "orange", info_window=info)
+                gmap.marker(lat, lon, choice(colours), info_window=info, label=choice(ships))
         return gmap.get()
 
     def main(self, city: str) -> Tuple[Union[str, dict], int]:

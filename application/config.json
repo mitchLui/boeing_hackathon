@@ -55,6 +55,14 @@
             "lat": -27.3823,
             "lng": 153.1693,
             "colour": "red"
+        },
+        "hong_kong": {
+            "name": "Port of Hong Kong",
+            "country": "HK",
+            "website": "https://en.wikipedia.org/wiki/Port_of_Hong_Kong",
+            "lat": 22.28795,
+            "lng": 114.1814,
+            "colour": "cornflowerblue"
         }
     },
     "apis": {
