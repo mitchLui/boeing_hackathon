@@ -42,7 +42,7 @@ class Mapper:
                 "url": f"{self.config['apis']['url']}{self.config['apis']['endpoints']['port']}",
                 "params": {
                     "name": port_id,
-                    "country_iso": "GB"
+                    "country_iso": self.config["ports"][port_id]["country"]
                 }
             } for port_id in self.port_ids 
         ]
