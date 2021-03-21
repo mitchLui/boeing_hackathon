@@ -25,8 +25,8 @@ async def root():
     return "app is running"
 
 @app.get("/marine_tracker")
-async def demo(city: str = "hong_kong"):
-    if city not in mapperAPI.port_ids: city = "hong_kong"
+async def demo(city: str = "tokyo"):
+    if city not in mapperAPI.port_ids: city = "tokyo"
     response, code = mapperAPI.main(city)
     return HTMLResponse(response, code)
 
