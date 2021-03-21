@@ -87,24 +87,24 @@ class Mapper:
         ]
         results = self.get_data_thread(data)
         for result in results:
-            colours = ["red", "orange", "yellow", "green", "blue", "purple"]
-            ships = ["V", "S"]
-            vessels = result["data"]["vessels"]
-            for vessel in vessels:
-                lat = vessel["lat"]
-                lon = vessel["lon"]
-                info = f"""
-                <b>{vessel['name']}</b>
-                <br><b>IMO</b>: {vessel['type']}
-                <br><b>Latitude</b>: {vessel['lat']}
-                <br><b>Longitude</b>: {vessel['lon']}
-                <br><b>Country</b>: {vessel['country_iso']}
-                <br><b>Type</b>: {vessel['type']}
-                <br><b>Speed</b>: {vessel['speed']}
-                <br><b>Course</b>: {vessel['course']}
-                <br><b>Heading</b>: {vessel['heading']}
-                """
-                gmap.marker(lat, lon, choice(colours), info_window=info)
+            if result:
+                colours = ["red", "orange", "yellow", "green", "blue", "purple"]
+                vessels = result["data"]["vessels"]
+                for vessel in vessels:
+                    lat = vessel["lat"]
+                    lon = vessel["lon"]
+                    info = f"""
+                    <b>{vessel['name']}</b>
+                    <br><b>IMO</b>: {vessel['type']}
+                    <br><b>Latitude</b>: {vessel['lat']}
+                    <br><b>Longitude</b>: {vessel['lon']}
+                    <br><b>Country</b>: {vessel['country_iso']}
+                    <br><b>Type</b>: {vessel['type']}
+                    <br><b>Speed</b>: {vessel['speed']}
+                    <br><b>Course</b>: {vessel['course']}
+                    <br><b>Heading</b>: {vessel['heading']}
+                    """
+                    gmap.marker(lat, lon, choice(colours), info_window=info)
         return gmap.get()
 
     def main(self, city: str) -> Tuple[Union[str, dict], int]:
