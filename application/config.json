@@ -2,30 +2,35 @@
     "ports": {
         "felixstowe": {
             "name": "Port of Felixstowe",
+            "website": "https://www.portoffelixstowe.co.uk",
             "lat": 51.9492,
             "lng": 1.3239,
             "colour": "orange"
         },
         "southampton": {
             "name": "Port of Southampton",
+            "website": "https://www.southamptonvts.co.uk",
             "lat": 50.8899,
             "lng": -1.3976,
             "colour": "blue"
         },
         "london": {
             "name": "Port of London",
+            "website": "http://www.pla.co.uk",
             "lat": 51.5093,
             "lng": 0.0350,
             "colour": "green"
         },
         "immingham": {
             "name": "Port of Immingham",
+            "website": "https://www.abports.co.uk/locations/immingham/",
             "lat": 53.6277,
             "lng": -0.1922,
             "colour": "purple"
         },
         "liverpool": {
             "name": "Port of Liverpool",
+            "website": "https://www.peelports.com/port-locations/liverpool",
             "lat": 53.4043,
             "lng": -2.9950,
             "colour": "red"
