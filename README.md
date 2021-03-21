@@ -24,11 +24,13 @@ The theme for 2021 is **Life Under Water 🌊🌱** and there are three categror
 2. Environment
 3. Communication
 
+The categrory we have chosen is Exploration.
+
 ---
 
 ## 1.2. Our Team
 
-Our team consists of 6 people from the University of Bristol, all of whom are from Hong Kong:
+Our team (named Rogue One after the fact that we were team 1 and Star Wars is awesome) consists of 6 people from the University of Bristol, all of whom are from Hong Kong:
 
 - [Mitch Lui][2] (Computer Science, 1st year)
 - [Otis Lee][3] (Electrial and Electronic Engineering, 1st year)
