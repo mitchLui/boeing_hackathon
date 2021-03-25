@@ -87,6 +87,13 @@
             "lat": 35.61168,
             "lng": 139.8268,
             "colour": "blue"
+        },
+        "suez_canal": {
+            "name": "Suez Port",
+            "country": "EG",
+            "lat": 29.94683,
+            "lng": 32.55069,
+            "colour": "yellow"
         }
     },
     "apis": {
