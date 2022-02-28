@@ -1,10 +1,10 @@
-# 1. Boeing Hackathon project
+# 1. Marine Vessel Tracker
 
 This repository stores the project created for the [University of Bristol CSSxBoeing Hackathon 2021][1].
 
 **UPDATE: We are very happy to share that this project was the first runner-up in our category!**
 
-- [1. Boeing Hackathon project](#1-boeing-hackathon-project)
+- [1. Marine Vessel Tracker](#1-marine-vessel-tracker)
   - [1.1. About the Hackathon](#11-about-the-hackathon)
   - [1.2. Our Team](#12-our-team)
   - [1.3. Our Project](#13-our-project)
